@@ -1,0 +1,20 @@
+Event Is a Class To uska onject bna na pdega 
+** 
+.on() me:
+Pehla parameter = identifier (event ka naam)
+Dusra parameter = callback function (listener)
+Matlab: "Jab ye event trigger hoga, tab ye function chalana hai"
+example:
+eventEmitter.on('greet', (name) => {
+  console.log(`Hello, ${name}!`);
+});
+
+**
+.emit() me:
+Pehla parameter = wahi identifier jo .on() me diya tha
+Baaki parameters = listener function ke arguments
+eventEmitter.emit('greet', 'Rohan');
+
+
+👉 Yaha 'greet' dekhte hi Node.js bolega:
+"Ohh is identifier ke liye listener registered hai! Ab wo function run kar do aur 'Rohan' ko usme pass kar do."

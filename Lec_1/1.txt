@@ -1,0 +1,39 @@
+1. Module kya hai?
+
+Module = ek file jisme code hota hai jo reuse ho sake.
+
+Matlab tum apna code chhote–chhote parts (files) me todh ke likhte ho aur unhe use karte ho.
+
+Ye tumhe code reuse, clean aur maintainable banane me madad karta hai.
+
+👉 Node.js me 3 type ke modules hote hain:
+
+Core Modules (built-in) → fs, http, path, os
+
+Local Modules (khud banaye hue)
+
+Third-party Modules (npm se install kiye, jaise express, mongoose)
+
+2. Export & Require ka kaam
+
+Node.js me ek file ka code dusri file me use karne ke liye:
+
+module.exports (ya exports) ka use karke cheez bahar bhejte ho
+
+require() ka use karke dusri file se andar le aate ho
+
+3. Use kyu karte hain?
+
+Code ko reusable banane ke liye
+
+Maintain karna easy ho jata hai (har file me alag-alag logic)
+
+Team work me har developer apna module bana sakta hai
+
+Node.js ka pura ecosystem hi modules pe based hai (fs, http, express, etc. sab modules hain)
+
+👉 Matlab:
+
+module.exports = cheez ko bahar bhejna
+
+require() = cheez ko andar lana

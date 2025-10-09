@@ -1,0 +1,70 @@
+Node.js me fs module ka use files ke saath kaam karne ke liye hota hai.
+Iske main operations ye hain:-
+
+
+1️⃣ Write (fs.writeFile / fs.promises.writeFile)
+
+Purpose: File create karna ya existing file ka content replace karna.
+
+Syntax:
+
+fs.writeFile(filePath, data, [options], callback)
+
+
+Parameters:
+
+filePath → file ka path jaha write karna hai
+
+data → file me likhna hai (string ya Buffer)
+
+[options] → optional, jaise "utf-8" encoding
+
+callback → function to handle error after write
+---------------------------------------------------
+
+2️⃣ Read (fs.readFile / fs.promises.readFile)
+
+Purpose: File ka content read karna.
+
+Parameters:
+
+filePath → read karne wali file ka path
+
+[options] → optional, jaise "utf-8"
+
+callback → function to handle error and get content
+----------------------------------------------------------
+
+
+3️⃣ Append (fs.appendFile / fs.promises.appendFile)
+
+Purpose: File ke existing content ke end me data add karna.
+Parameters:
+
+filePath → file jisme data add karna hai
+
+data → jo add karna hai (string ya Buffer)
+
+[options] → optional, encoding etc.
+
+callback → function to handle error
+-------------------------------------------
+
+4️⃣ Delete (fs.unlink / fs.promises.unlink)
+
+Purpose: File ko permanently delete karna.
+Parameters:
+
+filePath → delete karne wali file ka path
+
+callback → function to handle error
+--------------------------------------------------------------
+
+⚡ Summary Table:-
+
+| Operation | Function                         | Purpose                  | Parameters                         |
+| --------- | -------------------------------- | ------------------------ | ---------------------------------- |
+| Write     | writeFile / promises.writeFile   | File create ya overwrite | filePath, data, encoding, callback |
+| Read      | readFile / promises.readFile     | File content read        | filePath, encoding, callback       |
+| Append    | appendFile / promises.appendFile | File ke end me data add  | filePath, data, encoding, callback |
+| Delete    | unlink / promises.unlink         | File delete              | filePath, callback                 |

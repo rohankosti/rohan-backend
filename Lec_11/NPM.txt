@@ -1,0 +1,42 @@
+nodemon npm  insatall ena mate kryu htu ke jayre html no data to change thai jay che
+refresh krvathi pn jayre server no data change ktvo hoy tyare server no data change 
+nai thato refresh krvathi etle ena mate npm ane watch ne install kryu che
+
+node --watch server.js // commmnad watch 
+
+1️⃣ node_modules:-
+Ye folder aapke project ke sabhi installed packages/modules ka collection hai.
+Kya rakhta hai:
+Directly install kiye gaye packages (nodemon, express, mongodb)
+Un packages ke dependencies (jo package khud kaam karne ke liye chahiye)
+Note:
+Ye folder automatically npm manage karta hai
+Isme directly changes nahi karte
+Direct installs:
+express → aapne directly install kiya
+mongodb → directly install kiya
+nodemon → directly install kiya
+Dependencies of these packages:
+express ke liye → qs, debug, cookie, body-parser etc
+mongodb ke liye → bson, mongodb-core etc.
+nodemon ke liye → chokidar, anymatch, ps-tree etc.
+Matlab har package apne liye aur packages (dependencies) bhi install kar leta hai, aur agar wo dependencies ke andar bhi dependencies hain, to wo bhi install ho jati hain.
+
+2️⃣ package.json
+
+Ye ek configuration file hai jo project ka info aur dependencies rakhti hai.
+Important info jo rakhta hai:
+Project ka naam, version
+Directly installed packages aur unka version (dependencies)
+Scripts (jaise "start": "node server.js")
+Use:-Agar koi aur project clone kare → npm install chalane pe package.json me listed packages install ho jate hain
+
+
+3️⃣ package-lock.json
+
+Ye file exact version aur dependency tree rakhti hai jo node_modules me install hua hai.
+Ensure karta hai ki sab machines pe same versions install ho
+Nested dependencies ka exact record rakhta hai
+Note:
+Ye manually edit nahi karte
+npm automatically update karta hai

@@ -1,0 +1,17 @@
+{
+  "data1": {
+    "name": "samsung s24 ultra",
+    "color": "black",
+    "price": "50,000"
+  },
+  "data2": {
+    "name": "iphone 17",
+    "color": "orange",
+    "price": "80,000"
+  },
+  "data3": {
+    "name": "iphone 16",
+    "color": "black",
+    "price": "60,000"
+  }
+}

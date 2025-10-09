@@ -1,0 +1,48 @@
+Ye tumhe file paths handle karne ke liye madad karta hai (absolute/relative path, extensions, directory, etc.).
+Iska use hota hai jab tum files ke sath kaam karte ho.
+
+Import karna
+const path = require("path");
+
+Important Methods / Properties
+
+path.basename(path) → File name return karta hai
+path.dirname(path) → Directory name return karta hai
+path.extname(path) → File extension return karta hai
+path.join([...paths]) → Paths ko safely join karta hai
+path.resolve([...paths]) → Absolute path banata hai
+path.parse(path) → File ka object deta hai (root, dir, base, ext, name)
+path.format(object) → Object se path banata hai
+path.normalize(path) → Path ko normalize karta hai (extra slashes hatata hai)
+path.isAbsolute(path) → Path absolute hai ya nahi (true/false)
+
+👉 Total commonly used = ~9 methods (aur bhi hain, lekin itne kaafi hain shuruat me).
+-------------------------------------------------------------------------------------------------
+1. os (Operating System) Module
+
+Ye tumhe system related information deta hai (CPU, memory, hostname, platform, etc.).
+Iska use tab hota hai jab tumhe apne program me system ki details chahiye ho.
+
+Import karna
+const os = require("os");
+
+Important Methods / Properties
+
+os.arch() → CPU architecture (x64, arm, etc.)
+os.platform() → Platform (win32, linux, darwin)
+os.type() → OS type (Windows_NT, Linux, Darwin)
+os.hostname() → Computer ka naam
+os.release() → OS version
+os.uptime() → System uptime in seconds
+os.totalmem() → Total memory (in bytes)
+os.freemem() → Free memory (in bytes)
+os.cpus() → CPU details (cores, model, speed)
+os.networkInterfaces() → Network info (IP address, MAC)
+os.userInfo() → Current user info
+
+👉 Total commonly used = ~11–12 methods (aur bhi hain but ye most used hai).
+---------------------------------------------------------------------------------------------------
+
+✅ Summary
+os module = System/Hardware info lene ke liye (~11 methods)
+path module = File/folder path handle karne ke liye (~9 methods)

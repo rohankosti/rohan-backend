@@ -1,0 +1,12 @@
+node.js mai file ko 3 types handle kr skte hai 
+
+1) callback Style (default Node.js async)
+
+2) Promise jo 3 state return krta hai 
+                    |
+            --------------------
+            |         |        |
+            Pending   Resolve  Reject
+            (defualt) (then)   (catch(eroor)) 1 parameter 
+
+3) Async & Await (work like syncronice)            

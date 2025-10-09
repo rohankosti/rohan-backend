@@ -1,0 +1,87 @@
+🧠 1. Node.js me server kya hota hai?
+
+👉 Server ek program hota hai jo client (browser, mobile app, etc.) ke request ko receive karta hai, process karta hai aur response send karta hai.
+Example:
+Client → “/home page chahiye”
+Server → “/home ka HTML content bhejta hai”
+Simple words me — Server = Listener + Responder
+
+
+⚙️ 2. Server ka use kyu hota hai?
+
+Node.js server ka use hota hai:
+Website ya API serve karne ke liye
+(Jaise: HTML, CSS, JSON data bhejna)
+Client requests handle karne ke liye
+(GET, POST, PUT, DELETE — CRUD operations)
+Backend logic run karne ke liye
+(Jaise login, database se data fetch karna, etc.)
+Real-time communication
+(Chat apps, live notifications, etc.)
+
+
+🧩 3. Node.js me server create karne ke liye module
+
+Node.js me ek built-in module milta hai —
+👉 http module
+Is module ka use karke hum easily server bana sakte hain.
+
+
+🧠 1️⃣ Port kya hota hai?
+
+Simple language me:
+Port ek gate (darwaza) hota hai jisse computer ke andar koi program (jaise server) baahar ke clients (browser, app, etc.) se baat karta hai.
+Har computer me ek IP address hota hai (jaise ghar ka address),
+aur port number us ghar ke andar specific room (kamra) jesa hota hai
+jahan koi program baitha hai.
+🔹 Example:
+Soch:
+Tera computer = ek building
+Port 3000 = ek particular kamra jahan Node.js server baitha hai
+Port 5000 = doosra kamra jahan dusra app (jaise database) baitha hai
+
+💡 4️⃣ Node.js me hum custom port kyu use karte hain?
+Kyuki port 80 aur 443 web servers ke liye reserved hote hain
+(aur kabhi kabhi permission chahiye hoti hai).
+Isliye developers mostly use karte hain:
+👉 3000, 4000, 5000, 8080, etc.
+
+
+🧠 Pehle basic samajh: req.url kya hota hai?
+
+req.url ka matlab hota hai —
+“User ne kis address (path) par request bheji hai.”
+Jab tu browser me likhta hai:
+http://localhost:3000/about
+to browser actually server ko ye URL bhejta hai.
+Ab Node.js server ke paas jab request aati hai,
+to usme 2 main cheeze hoti hain:
+req.method → GET, POST, etc.
+req.url → /about, /contact, etc.
+
+
+💡 URL ka structure samajh:
+Ek complete URL 4 parts me hota hai:
+http://localhost:3000/about
+│        │           │
+│        │           └── Path (ye req.url hota hai)
+│        └────────────── Host (computer jahan server run ho raha hai)
+└──────────────────────── Protocol (http/https)
+So yahaan:
+Protocol: http
+Host: localhost
+Port: 3000
+Path: /about ← ye hi req.url ka value hai
+
+
+
+🧩 Ab / likhne ka reason
+Jab tu sirf likhta hai:
+http://localhost:3000/
+to path = / hota hai
+(ye home route represent karta hai).
+
+Agar tu likhe:
+http://localhost:3000/about
+to path = /about hota hai
+(ye about page represent karta hai)
