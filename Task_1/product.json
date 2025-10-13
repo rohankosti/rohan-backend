@@ -13,5 +13,10 @@
     "name": "iphone 16",
     "color": "black",
     "price": "60,000"
+  },
+  "data4": {
+    "name": "IQOO neo 10R",
+    "color": "Silver",
+    "price": "23,000"
   }
 }
