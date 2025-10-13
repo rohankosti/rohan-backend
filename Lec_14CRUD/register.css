@@ -1,0 +1,35 @@
+body {
+      background: #e9f0ff;
+    }
+    .register-card {
+      max-width: 450px;
+      margin: 60px auto;
+      padding: 35px;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    .register-card h3 {
+      margin-bottom: 25px;
+      text-align: center;
+      font-weight: 600;
+    }
+    .form-control:focus {
+      box-shadow: none;
+      border-color: #198754;
+    }
+    .btn-register {
+      background: #198754;
+      color: #fff;
+      font-weight: 500;
+    }
+    .btn-register:hover {
+      background: #157347;
+    }
+    .text-center a {
+      text-decoration: none;
+      color: #198754;
+    }
+    .text-center a:hover {
+      text-decoration: underline;
+    }

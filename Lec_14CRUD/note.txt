@@ -1,0 +1,35 @@
+💡 Pehle samajh:
+
+ES Modules (jisme tu import use kar raha hai) me
+👉 __dirname aur __filename default available nahi hote.
+Wo sirf CommonJS (require) system me milte hain.
+
+🔹 Ye line:
+const __filename = fileURLToPath(import.meta.url);
+
+
+➡️ ye teri current file ka absolute path bana raha hai.
+Example:
+
+C:\WEB_DEVLOPMENT\NODE_.JS\node\Lec_14(CRUD)\app.js
+
+🔹 Aur ye line:
+const __dirname = path.dirname(__filename);
+
+
+➡️ ye __filename me se sirf folder ka path nikalti hai,
+matlab:
+
+C:\WEB_DEVLOPMENT\NODE_.JS\node\Lec_14(CRUD)
+
+🔹 Ab jab tu likhta hai:
+const indexPage = path.join(__dirname, "public", "index.html");
+
+
+➡️ Ye line bolti hai:
+
+“__dirname (current folder) ke andar ja, uske andar public folder me ja, aur fir index.html file pakad le.”
+
+Output:
+
+C:\WEB_DEVLOPMENT\NODE_.JS\node\Lec_14(CRUD)\public\index.html
