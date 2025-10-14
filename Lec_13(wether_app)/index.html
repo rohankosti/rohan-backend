@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>🌤 Weather App</h2>
+  <form id="weatherForm">
+    <input type="text" id="city" placeholder="Enter city name" required>
+    <button type="submit">Get Weather</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    const form = document.getElementById('weatherForm');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const city = document.getElementById('city').value;
+      const res = await fetch(`/weather?city=${city}`);
+      const data = await res.json();
+      document.getElementById('result').innerHTML =
+        `<h3>${data.city}</h3><p>Temperature: ${data.temp}</p><p>Condition: ${data.desc}</p>`;
+    });
+  </script>
+</body>
+</html>
