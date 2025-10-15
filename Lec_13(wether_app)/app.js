@@ -7,24 +7,35 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
-const city =await rl.question("Enter City Name");
-console.log(city);
-rl.close();
 
 async function weather() {
   try {
+    const CITY = await rl.question("ENTER CITY NAME:- ");
+    console.log(CITY);
+    rl.close();
+
+    const URL = `https://api.openweathermap.org/data/2.5/weather?q=${CITY}&appid=${API_KEY}&units=metric`;
+    // console.log(URL);
+
+    const FETCH_URL = await fetch(URL);
+    // console.log(FETCH_URL);
+
+     if (FETCH_URL.status) {
       
-     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`;
-     console.log(url);
+       const JSON_DATA = await FETCH_URL.json();
+      //  console.log(JSON_DATA);
+      console.log(`TEMPRETURE:-${JSON_DATA.main.temp} ℃`);
+      console.log(`MAX_TEMPRETURE:-${JSON_DATA.main.temp_max} ℃`);
+      console.log(`HUMIDITY:-${JSON_DATA.main.humidity}`);
+      console.log(`WIND:-${JSON_DATA.wind}`);
+      console.log(`COUNTRY:-${JSON_DATA.sys.country} ℃`);
+      
+       
+     }
 
-     const fech =await fetch(url);
-     console.log(fech);
-
-          
-} 
-catch (error) {
+  } catch (error) {
     console.error(error);
-}
+  }
 }
 
 weather();
