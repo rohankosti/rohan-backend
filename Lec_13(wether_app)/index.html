@@ -13,10 +13,13 @@
     <h1 class="mb-4 fw-bold text-white">🌤 Unique Weather App</h1>
 
     <div class="card p-4 shadow-lg w-100 weather-card" style="max-width: 500px; border-radius: 20px;">
-      <div class="input-group mb-3">
-        <input type="text" id="cityInput" class="form-control" placeholder="Enter city name">
-        <button class="btn btn-gradient mx-2 rounded-3" id="getWeatherBtn">Search</button>
-      </div>
+      <form action="/wetherdata" method="post">
+          <div class="input-group mb-3">
+          
+          <input type="text" id="cityInput" class="form-control" name="city" placeholder="Enter city name">
+          <button class="btn btn-gradient mx-2 rounded-3" id="getWeatherBtn">Search</button>
+        </div>
+      </form>
 
       <div class="weather-result" id="weatherResult">
         <!-- Weather info + image -->
@@ -26,9 +29,6 @@
 
   <script src="app.js"></script>
 
-  <script>
-       let city = document.getElementById("cityInput");
-       console.log(city);
-  </script>
+  
 </body>
 </html>
