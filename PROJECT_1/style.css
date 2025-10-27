@@ -71,6 +71,29 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
   background: linear-gradient(135deg, #2a5298, #1e3c72);
-  transform: scale(1.05);
-  transition: all 0.2  linear ;
+  transform: scale(1.03);
+  transition: all 0.3s linear;
+}
+.shorturl {
+  width: 100%;
+  display: none;
+  /* display: block; */
+  /* border: 2px solid black; */
+}
+#shortended_url {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #333;
+  padding: 10px;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+#shortended_url:focus {
+  border-color: #1e3c72;
+}
+#shortended_url:hover {
+ border:2px solid #3d60a2;
+  transition: all 1s linear;
 }
