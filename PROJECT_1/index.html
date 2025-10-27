@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL SHORTENER</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>URL SHORTENER</h1>
+        <form action="url_short" method="post" id="shortend_form">
+            <div class="form-group">
+                <label for="enter_url">Enter Your URL:</label>
+                <input type="url" name="url" value="" id="enter_url" placeholder="https://example.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="custom_url">Enter Custom URL:</label>
+                <input type="text" name="custom_url" value="" id="custom_url" placeholder="myshortlink" required>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Shorten URL" id="submit">
+            </div>
+        </form>
+
+          <h1>Shortended URLs</h1>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
