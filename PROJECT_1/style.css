@@ -74,13 +74,18 @@ input[type="submit"]:hover {
   transform: scale(1.03);
   transition: all 0.3s linear;
 }
-.shorturl {
-  width: 100%;
+.shorturl{
+   width: 100%;
+  max-width: 450px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  padding: 30px;
   display: none;
   /* display: block; */
   /* border: 2px solid black; */
 }
-#shortended_url {
+.shortended_url {
   font-weight: 600;
   margin-bottom: 5px;
   color: #333;
@@ -90,10 +95,6 @@ input[type="submit"]:hover {
   outline: none;
   transition: border-color 0.3s ease;
 }
-#shortended_url:focus {
+.shortended_url:focus {
   border-color: #1e3c72;
-}
-#shortended_url:hover {
- border:2px solid #3d60a2;
-  transition: all 1s linear;
 }

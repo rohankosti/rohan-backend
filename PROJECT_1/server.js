@@ -1,13 +1,15 @@
 import http from "http";
 import fs from "fs/promises";
 import path, { dirname } from "path";
-import url, { fileURLToPath } from "url";
+import url, { fileURLToPath, URLSearchParams } from "url";
+import crypto from 'crypto';
+
 
 let filurl = fileURLToPath(import.meta.url);
 // console.log(filurl);
 
 let dir = path.dirname(filurl);
-// console.log(dir);
+console.log(dir);
 
 let filepath = path.join(dir, "index.html");
 let csspath = path.join(dir,"style.css");
@@ -16,6 +18,32 @@ let jspath = path.join(dir,"app.js");
 // console.log(csspath);
 // console.log(jspath);
 
+let linkpath = path.join(dir,"Data","link.json");
+// console.log(linkpath);
+
+const loadlinks =async ()=>{
+  try {
+    
+    let linkread = await fs.readFile(linkpath,"utf-8");
+    //  console.log(linkread);
+     if (!linkread.trim()) return {};
+       return JSON.parse(linkread);
+     
+ } catch (error) {
+  if (error.code ==="ENOENT") {
+    await fs.writeFile(linkpath,JSON.stringify({}),"utf-8")
+    return{}
+  }
+  throw error;
+  
+  //  console.log(error);
+   
+ }
+}
+
+const savelinks = async(links)=>{
+   await fs.writeFile(linkpath,JSON.stringify(links),"utf-8")
+}
 
 
 const server = http.createServer(async (req, res) => {
@@ -37,6 +65,41 @@ const server = http.createServer(async (req, res) => {
         let file3 = await fs.readFile(jspath,"utf-8");
         res.writeHead(200,{"content-type":"text/js"});
         res.end(file3);
+
+    }
+
+    else if(req.method==="POST" && req.url==="/urlshort"){
+
+       let links =await loadlinks();
+      let body ="";
+      req.on("data",(chunk)=>{
+        body += chunk;
+      })
+      req.on("end", async()=>{
+        console.log(body);
+        // const urlpara = URLSearchParams(body);
+        // const object = Object.fromEntries(urlpara)
+
+        const {url ,shortcode}= JSON.parse(body);
+         if (!url) {
+          res.writeHead(400,{"content-type":"text/plain"})
+          res.end("URL Is Required !...")
+         }
+         //shortcode mai value hai to truthy to vo use kro ni falsy to randome generate
+         const finalshortcode = shortcode || crypto.randomBytes(4).toString("hex");  //shortcode :truthy  
+         
+          //links ek object hai or finalshortcode ek string hai to usek liye []
+         if (links[finalshortcode]){
+           res.writeHead("400",{"content-type":"text/plain"});
+           res.end("Short Code Already Exits. Pls Choose Another");
+         }
+
+        links[finalshortcode] = url;
+
+         await savelinks(links);
+         res.writeHead(200,{"content-type":"application/json"})
+         res.end(JSON.stringify({success:true,shortCode:finalshortcode}));
+      })
 
     }
   } catch (error) {

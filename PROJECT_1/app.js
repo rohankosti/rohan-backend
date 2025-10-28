@@ -14,19 +14,38 @@
 // jiska name="..." attribute hota hai.
 
 let shortend_form = document.getElementById("shortend_form");
-console.log(shortend_form);
+// console.log(shortend_form);
 
 shortend_form.addEventListener("submit", (e) => {
   e.preventDefault();
 
+  //    const formdata = new FormData(e.target); optioninal
   const formdata = new FormData(shortend_form);
-//    const formdata = new FormData(e.target); optioninal 
-  console.log(formdata);
+  // console.log(formdata);
 
   const url = formdata.get("url");
   const shortcode = formdata.get("custom_url");
 
   console.log(url, shortcode);
+
+  async function URL_SHORT() {
+    try {
+      const response = await fetch("/urlshort", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ url, shortcode }),
+      });
+
+      if (response.ok) {
+        alert("Form Sumbited Succsessfully");
+        Event.target.reset();
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  URL_SHORT();
 });
 
 // const enter_url = document.getElementById("enter_url");
