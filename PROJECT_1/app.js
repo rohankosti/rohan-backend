@@ -13,6 +13,40 @@
 // Ye specific input field ka value deta hai
 // jiska name="..." attribute hota hai.
 
+// ------------------------------------------START--------------------------------------------------------
+
+//fetch beckend url
+const fetchshortendedURL = async () => {
+  const response = await fetch("/links");
+  const links = await response.json();
+  console.log("links", links);
+
+  const shorturl = document.getElementsByClassName("shorturl");
+  console.log(shorturl);
+
+  const list = document.getElementById("shortended_url");
+  list.innerHTML = "";
+
+  // Show All Links In JSON File
+  //  for (const [shortCode,url] of Object.entries(links)) {
+  //   const li = document.createElement('li');
+  //   li.innerHTML=`<a href="/${shortCode}" target="_blank">
+  //   ${window.location.origin}/${shortCode}</a> - ${url}`
+  //   list.appendChild(li);
+  //  }
+
+  // Show Added Links In JSON File
+  const entries = Object.entries(links);
+  if (entries.length > 0) {
+    const [shortCode, url] = entries[entries.length - 1]; // ✅ last added entry
+    const li = document.createElement("li");
+    // shorturl[0].style.display = "inline";
+    li.innerHTML = `<a href="/${shortCode}" target="_blank">
+  ${window.location.origin}/${shortCode}</a> - ${url}`;
+    list.appendChild(li);
+  }
+};
+
 let shortend_form = document.getElementById("shortend_form");
 // console.log(shortend_form);
 
@@ -37,8 +71,14 @@ shortend_form.addEventListener("submit", (e) => {
       });
 
       if (response.ok) {
+        await fetchshortendedURL();
+        // shorturl[0].style.display = "block";
         alert("Form Sumbited Succsessfully");
-        Event.target.reset();
+        e.target.reset();
+      } else {
+        const msg = await response.text();
+        alert("❌ Error: " + msg);
+        e.target.reset();
       }
     } catch (error) {
       console.error(error);
@@ -47,6 +87,14 @@ shortend_form.addEventListener("submit", (e) => {
 
   URL_SHORT();
 });
+
+// fetchshortendedURL(); last URl show
+// -----------------------------------------END--------------------------------------------------------
+
+
+
+
+
 
 // const enter_url = document.getElementById("enter_url");
 // console.log(enter_url);
@@ -67,4 +115,4 @@ shortend_form.addEventListener("submit", (e) => {
 //    console.log(url_data);
 
 // });
-// old method
+// old method this method use .value method and uper jo hai vo ,new FormData , formdata.get() mehod only use form 

@@ -16,7 +16,7 @@ body {
 }
 
 .container {
-  width: 90%;
+  width: 100%;
   max-width: 450px;
   background-color: #fff;
   border-radius: 15px;
@@ -74,27 +74,34 @@ input[type="submit"]:hover {
   transform: scale(1.03);
   transition: all 0.3s linear;
 }
-.shorturl{
-   width: 100%;
-  max-width: 450px;
-  background-color: #fff;
-  border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  padding: 30px;
-  display: none;
-  /* display: block; */
-  /* border: 2px solid black; */
+.shorturl {
+  /* display: none; hidden by default */
+  margin-top: 20px;
+  text-align: center;
 }
-.shortended_url {
-  font-weight: 600;
-  margin-bottom: 5px;
-  color: #333;
+
+#shortended_url {
+  list-style: none;
+  padding: 0;
+  overflow: hidden;
+}
+
+#shortended_url li {
+  overflow: hidden;
+  background: #f2f2f2;
+  margin: 8px 0;
   padding: 10px;
-  border: 1px solid #aaa;
   border-radius: 8px;
-  outline: none;
-  transition: border-color 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
 }
-.shortended_url:focus {
-  border-color: #1e3c72;
+
+#shortended_url a {
+  color: #1e3c72;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#shortended_url a:hover {
+  text-decoration: underline;
 }
