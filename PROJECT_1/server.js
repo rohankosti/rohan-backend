@@ -15,7 +15,7 @@ let filepath = path.join(dir, "index.html");
 let csspath = path.join(dir, "style.css");
 let jspath = path.join(dir, "app.js");
 // console.log(filepath);
-// console.log(csspath);
+// console.log(csspath); 
 // console.log(jspath);
 
 let linkpath = path.join(dir, "Data", "link.json");

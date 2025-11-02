@@ -1,0 +1,32 @@
+1. What Does "Event-Driven" Mean?
+Event-driven means the flow of the program is determined by events.
+
+Instead of running instructions one by one in a fixed sequence, the program listens for events (like a user clicking a button, a file finishing loading, or a network request completing) and then executes a callback function when that event occurs.
+
+In Node.js, almost everything works around this idea.
+
+2. Why Event-Driven in Node.js?
+Node.js was designed for:
+
+Scalability: handling thousands of requests at the same time.
+
+Non-blocking I/O: it doesn’t wait for a slow operation (like reading a file or database query).
+Instead, it registers a callback and continues doing other work.
+When the operation finishes, Node emits an event to trigger the callback.
+
+This is possible because of the event loop.
+
+3. The Event Loop
+At the core of Node.js is the event loop, which:
+
+Listens for events (like incoming HTTP requests, file completion, timers, etc.).
+
+Queues them.
+
+Executes the callback functions tied to those events.
+
+So Node.js doesn’t “pause” while waiting; it just registers events and responds when they happen.
+
+4. EventEmitter in Node.js
+Node.js has a built-in module called events.
+It provides the EventEmitter class, which is the backbone of Node’s event-driven architecture.
